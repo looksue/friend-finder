@@ -10,7 +10,7 @@ module.exports = function (app) {
         return res.json(friends);
     });
 
-    //display the most compatible friend, or return false
+    //find and display a particular friend, or return false
     app.get("/api/friend/:friend", function (req, res) {
         var newFriend = req.params.friend;
         console.log(newFriend);

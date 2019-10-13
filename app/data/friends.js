@@ -18,3 +18,6 @@ var friends = [
           ]
       }
    ]
+
+   // export the friends array for other programs
+   module.exports = friends;
