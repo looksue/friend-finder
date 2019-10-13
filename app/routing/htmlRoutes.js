@@ -1,16 +1,16 @@
-//set up default and add routes
+//set up default and /add routes
 
-var server = require ("../../server");
+var path = require("path");
 
-var routeRoot = server.get("/", function (req, res) {
-    console.log(req);
-    res.sendFile(path.join(__dirname, "app/public/home.html"));
-});
+module.exports = function (app) {
 
-var routeAdd = server.get("/add", function (req, res) {
-    console.log(req);
-    res.sendFile(path.join(__dirname, "app/public/survey.html"));
-});
+    // HTML pages to serve when user requests a URL
 
-module.exports = routeRoot;
-module.exports = routeAdd;
+    app.get("/", function (req, res) { // root (/) defaults to home.html
+        res.sendFile(path.join(__dirname, "../public/home.html"));
+    });
+
+    app.get("/add", function (req, res) { // add (/add) redirects to survey.html
+        res.sendFile(path.join(__dirname, "../public/survey.html"));
+    });
+};
