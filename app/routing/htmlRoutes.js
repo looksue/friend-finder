@@ -1,9 +1,16 @@
-//route that sends user to AJAX page
+//set up default and add routes
 
-app.get("/",function(req,res) {
-    res.sendFile(path.join(_dirname, app/routing/htmlRoutes.js));
+var server = require ("../../server");
+
+var routeRoot = server.get("/", function (req, res) {
+    console.log(req);
+    res.sendFile(path.join(__dirname, "app/public/home.html"));
 });
 
-app.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname,app/public/survey.html));
+var routeAdd = server.get("/add", function (req, res) {
+    console.log(req);
+    res.sendFile(path.join(__dirname, "app/public/survey.html"));
 });
+
+module.exports = routeRoot;
+module.exports = routeAdd;
