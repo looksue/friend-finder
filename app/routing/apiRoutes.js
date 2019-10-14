@@ -10,23 +10,11 @@ module.exports = function (app) {
         return res.json(friends);
     });
 
-    //find and display a particular friend, or return false
-    app.get("/api/friend/:friend", function (req, res) {
-        var newFriend = req.params.friend;
-        console.log(newFriend);
-        for (var i = 0; i < friends.length; i++) {
-            if (newFriend === friends[i].name) {
-                return res.json(friends[i]);
-            }
-        }
-        return res.json(false);
-    });
-
-    //create new friends in JSON input
+    //create new friends in JSON format
     app.post("/api/friends", function (req, res) {
         var newFriend = req.body;
-        newFriend.name = newFriend.name.replace(/\s+/g, "").toUpperCase();
-        console.log(newFriend);
+        // newFriend.name = newFriend.name.replace(/\s+/g, "").toUpperCase();
+        console.log("----------" + newFriend + "----------");
         friends.push(newFriend);
         res.json(newFriend);
     });
