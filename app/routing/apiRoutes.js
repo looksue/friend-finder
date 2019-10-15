@@ -1,3 +1,8 @@
+//include the packages (remember to run "npm install <package>")
+var fs = require('fs');
+
+
+
 // set up the API routes
 
 // link to the friends data file
@@ -12,10 +17,12 @@ module.exports = function (app) {
 
     //create new friends in JSON format
     app.post("/api/friends", function (req, res) {
-        var newFriend = req.body;
-        // newFriend.name = newFriend.name.replace(/\s+/g, "").toUpperCase();
-        console.log("----------" + newFriend + "----------");
+        var newFriend= req.body;
+        newFriend.name = newFriend.name.replace(/\s+/g, "").toUpperCase();
         friends.push(newFriend);
-        res.json(newFriend);
+        console.log(JSON.stringify(friends));
+        fs.writeFile("/app/data/friends.js", JSON.stringify(friends), function (err) {
+            res.json(newFriend);
+        });
     });
 };

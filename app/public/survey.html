@@ -128,16 +128,18 @@
             var newFriend = {
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
-                score1: $("#score1").val().trim(),
-                score2: $("#score2").val().trim(),
-                score3: $("#score3").val().trim(),
-                score4: $("#score4").val().trim(),
-                score5: $("#score5").val().trim(),
-                score6: $("#score6").val().trim(),
-                score7: $("#score7").val().trim(),
-                score8: $("#score8").val().trim(),
-                score9: $("#score9").val().trim(),
-                score10: $("#score10").val().trim()
+                scores: [
+                 $("#score1").val().trim(),
+                 $("#score2").val().trim(),
+                 $("#score3").val().trim(),
+                 $("#score4").val().trim(),
+                 $("#score5").val().trim(),
+                 $("#score6").val().trim(),
+                 $("#score7").val().trim(),
+                 $("#score8").val().trim(),
+                 $("#score9").val().trim(),
+                 $("#score10").val().trim()
+            ]
             };
 
             // Send the array to our /api/tables URL using POST.
