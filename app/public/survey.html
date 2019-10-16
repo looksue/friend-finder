@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <title>F.F.S</title>
 </head>
 
@@ -119,6 +122,19 @@
         </form>
     </div>
 
+    <!-- bff Modal -->
+    <div id="bffModal" class="modal">
+        <div class="modal-content">
+            <h4>BFF</h4>
+            <div class="divider"></div>
+            <h5 id="bffHeader"></h5>
+            <img id="bffPhoto" class="materialboxed" width="650" src="">
+        </div>
+        <div class="modal-footer">
+            <a href="/add" class="modal-action modal-close">Close</a>
+        </div>
+    </div>
+
     <script type="text/javascript">
         // post a new friend to the array
         $("#btnSubmit").on("click", function (event) {
@@ -129,37 +145,51 @@
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
                 scores: [
-                 $("#score1").val().trim(),
-                 $("#score2").val().trim(),
-                 $("#score3").val().trim(),
-                 $("#score4").val().trim(),
-                 $("#score5").val().trim(),
-                 $("#score6").val().trim(),
-                 $("#score7").val().trim(),
-                 $("#score8").val().trim(),
-                 $("#score9").val().trim(),
-                 $("#score10").val().trim()
-            ]
+                    $("input:radio[name='score1']:checked").val().trim(),
+                    $("input:radio[name='score2']:checked").val().trim(),
+                    $("input:radio[name='score3']:checked").val().trim(),
+                    $("input:radio[name='score4']:checked").val().trim(),
+                    $("input:radio[name='score5']:checked").val().trim(),
+                    $("input:radio[name='score6']:checked").val().trim(),
+                    $("input:radio[name='score7']:checked").val().trim(),
+                    $("input:radio[name='score8']:checked").val().trim(),
+                    $("input:radio[name='score9']:checked").val().trim(),
+                    $("input:radio[name='score10']:checked").val().trim()
+                ]
             };
 
-            // Send the array to our /api/tables URL using POST.
-            $.post("/api/friends", newFriend, function (data) {
+            // Send the array to our /api/friends URL using POST.
+            $.post("/api/friends", newFriend)
+                .then(function (data) {
 
-                // Clear the form when submitting
-                $("#name").val("");
-                $("#photo").val("");
-                $("#score1").val("");
-                $("#score2").val("");
-                $("#score3").val("");
-                $("#score4").val("");
-                $("#score5").val("");
-                $("#score6").val("");
-                $("#score7").val("");
-                $("#score8").val("");
-                $("#score9").val("");
-                $("#score10").val("");
-            });
+                    //bff comes back as data
+                    var bff = data;
+                    var bffName = data.bffName;
+                    var bffPhoto = data.bffPhoto;
+
+                    //show bff name and bff photo in a modal
+                    $("#bffName").html(bffName);
+                    $("#bffPhoto").attr("src", bffPhoto);
+
+                    // Pop open the modal dialog
+                    $("#bffModal").modal("open");
+
+                    // Clear the form after submitting
+                    $("#name").val("");
+                    $("#photo").val("");
+                    $("#score1").val("");
+                    $("#score2").val("");
+                    $("#score3").val("");
+                    $("#score4").val("");
+                    $("#score5").val("");
+                    $("#score6").val("");
+                    $("#score7").val("");
+                    $("#score8").val("");
+                    $("#score9").val("");
+                    $("#score10").val("");
+                });
         });
+
     </script>
 </body>
 
