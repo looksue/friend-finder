@@ -125,10 +125,10 @@
     <!-- bff Modal -->
     <div id="bffModal" class="modal">
         <div class="modal-content">
-            <h4>BFF</h4>
+            <h4>Your new BFF is:</h4>
             <div class="divider"></div>
             <h5 id="bffHeader"></h5>
-            <img id="bffPhoto" class="materialboxed" width="650" src="">
+            <img id="bffPhoto" class="materialboxed" width="250" src="">
         </div>
         <div class="modal-footer">
             <a href="/add" class="modal-action modal-close">Close</a>
@@ -168,7 +168,7 @@
                     var bffPhoto = data.bffPhoto;
 
                     //show bff name and bff photo in a modal
-                    $("#bffName").html(bffName);
+                    $("#bffHeader").html(bffName);
                     $("#bffPhoto").attr("src", bffPhoto);
 
                     // Pop open the modal dialog
