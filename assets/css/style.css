@@ -3,8 +3,8 @@ html, body {
     padding:0; 
     height:100%; 
   }
-body::before {
-    background-image: url("/assets/images/background.jpeg");
+body {
+    background-image: url("../../assets/images/background.jpeg");
     z-index: -2;
     content: "";
     position: fixed; 
