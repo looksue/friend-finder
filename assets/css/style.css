@@ -4,7 +4,7 @@ html, body {
     height:100%; 
   }
 body {
-    background-image: url("../../assets/images/background.jpeg");
+    background-image: url("/images/background.jpeg");
     z-index: -2;
     content: "";
     position: fixed; 
