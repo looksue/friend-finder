@@ -1,4 +1,4 @@
-# friend-finder
+BFF Friend-Finder
 **How to run this app:** 
 This app is deployed through Heroku. You must go to the link listed below to access it. Once there, you can 
 click on the "Go to the Survey" link. Enter your name and a link to your photo image. Answer the survey questions by clicking on the number that best describes your answer on a scale from 1 to 5. Click on the Submit button. The app will calculate your new BFF based on the results that are closest to yours! The app will then show you the name and a picture of your new BFF! 
