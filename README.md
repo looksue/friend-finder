@@ -19,5 +19,6 @@ This is a friend-finder app. The user must enter their name, a valid URL to thei
 
 **Video Example:**
 [BFF Friend Finder] (https://drive.google.com/file/d/1IvEXDnGrNi4zJHGB9r6OnBulbygipr3X/view)
+
 **Link to Project:**
 [friend-finder](https://github.com/looksue/friend-finder)
