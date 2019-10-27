@@ -17,5 +17,7 @@ This is a friend-finder app. The user must enter their name, a valid URL to thei
 
 **Tech/Framework:** Node, Express, Path, Bootstrap, jQuery, JavaScript, Math, Exports
 
+**Video Example:**
+[BFF Friend Finder] (https://drive.google.com/file/d/1IvEXDnGrNi4zJHGB9r6OnBulbygipr3X/view)
 **Link to Project:**
 [friend-finder](https://github.com/looksue/friend-finder)
